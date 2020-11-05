@@ -23,12 +23,14 @@ namespace QRReader.Controllers {
         public async Task<string> ReadQrCode() {
             var apiUrl = configuration["QRReaderApiUrl"];
             var content = GetContentFile();
-            var response = await httpClient.PostAsync(apiUrl, null);
+            var response = await httpClient.PostAsync(apiUrl, content);
 
             return "";
         }
 
-        private object GetContentFile() {
+        private HttpContent GetContentFile() {
+            var filePath = $"{AppDomain.CurrentDomain.BaseDirectory}/images/qrvode.jpeg";
+
             throw new NotImplementedException();
         }
     }
